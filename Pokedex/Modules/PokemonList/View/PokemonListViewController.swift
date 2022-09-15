@@ -8,6 +8,8 @@
 import UIKit
 import CoreData
 
+let cellIdentifier = "pokemonCellIdentifier"
+
 class PokemonListViewController: UITableViewController, PokemonListViewProtocol {
 
     var presenter:PokemonListPresenterProtocol?
@@ -60,14 +62,14 @@ extension PokemonListViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 25
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        cell.textLabel?.text = "Hola"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PokemonCell
+        
+        cell.setPokemonCell(with: "Título de ejemplo")
 
         return cell
     }

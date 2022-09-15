@@ -19,6 +19,7 @@
 		5641BD2228D2CB52008EC90C /* PokemonListWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641BD2128D2CB52008EC90C /* PokemonListWireFrame.swift */; };
 		5641BD2A28D2CBCE008EC90C /* PokemonListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641BD2928D2CBCE008EC90C /* PokemonListPresenter.swift */; };
 		5641BD2F28D2CE07008EC90C /* PokemonListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641BD2E28D2CE07008EC90C /* PokemonListInteractor.swift */; };
+		567566C828D36DE400972FF1 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566C728D36DE400972FF1 /* PokemonCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		5641BD2128D2CB52008EC90C /* PokemonListWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListWireFrame.swift; sourceTree = "<group>"; };
 		5641BD2928D2CBCE008EC90C /* PokemonListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListPresenter.swift; sourceTree = "<group>"; };
 		5641BD2E28D2CE07008EC90C /* PokemonListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListInteractor.swift; sourceTree = "<group>"; };
+		567566C728D36DE400972FF1 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				5641BD1328D2C7F5008EC90C /* PokemonListViewController.swift */,
+				567566C728D36DE400972FF1 /* PokemonCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				5641BD1A28D2C8F8008EC90C /* PokemonListProtocols.swift in Sources */,
 				5641BD1428D2C7F5008EC90C /* PokemonListViewController.swift in Sources */,
 				5641BCCF28D28EA2008EC90C /* SceneDelegate.swift in Sources */,
+				567566C828D36DE400972FF1 /* PokemonCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
