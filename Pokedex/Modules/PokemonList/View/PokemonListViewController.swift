@@ -35,8 +35,11 @@ class PokemonListViewController: UITableViewController, PokemonListViewProtocol 
     }
 
     func setupUI(){
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
-        self.tableView.tableHeaderView = resultSearchController.searchBar
+        title = "Pokédex"
+        self.tableView.register(PokemonCell.self, forCellReuseIdentifier: cellIdentifier)
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.navigationItem.searchController = resultSearchController
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     /*
