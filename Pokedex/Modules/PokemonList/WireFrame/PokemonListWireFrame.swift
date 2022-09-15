@@ -15,6 +15,7 @@ class PokemonListWireFrame: PokemonListWireFrameProtocol {
         
         let viewController = PokemonListViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.navigationBar.prefersLargeTitles = true
         
         let presenter: PokemonListPresenterProtocol & PokemonListOutputInteractorProtocol = PokemonListPresenter()
         
@@ -28,7 +29,9 @@ class PokemonListWireFrame: PokemonListWireFrameProtocol {
     }
     
     // MARK: - Navigation
-    func pushToPokemonDetail() {
-        
+    func pushToPokemonDetail(from view: UIViewController) {
+        let controller = UIViewController()
+        controller.view.backgroundColor = .white
+        view.navigationController?.pushViewController(controller, animated: true)
     }
 }

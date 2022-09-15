@@ -39,7 +39,6 @@ class PokemonListViewController: UITableViewController, PokemonListViewProtocol 
         self.tableView.register(PokemonCell.self, forCellReuseIdentifier: cellIdentifier)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.navigationItem.searchController = resultSearchController
-        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     /*
@@ -79,6 +78,8 @@ extension PokemonListViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        presenter?.showPokemonSelection(from: self)
     }
 
     /*

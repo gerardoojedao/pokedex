@@ -17,6 +17,7 @@ protocol PokemonListPresenterProtocol {
     var wireframe: PokemonListWireFrameProtocol? {get set}
     
     func viewDidLoad()
+    func showPokemonSelection(from view: UIViewController)
 }
 
 protocol PokemonListInputInteractorProtocol {
@@ -32,5 +33,5 @@ protocol PokemonListOutputInteractorProtocol {
 
 protocol PokemonListWireFrameProtocol {
     static func createModule() -> UINavigationController
-    func pushToPokemonDetail()
+    func pushToPokemonDetail(from view: UIViewController)
 }

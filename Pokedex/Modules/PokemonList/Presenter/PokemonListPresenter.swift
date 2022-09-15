@@ -5,7 +5,7 @@
 //  Created by Gerardo Ojeda on 14-09-22.
 //
 
-import Foundation
+import UIKit
 
 class PokemonListPresenter: PokemonListPresenterProtocol {
     
@@ -15,6 +15,10 @@ class PokemonListPresenter: PokemonListPresenterProtocol {
     
     func viewDidLoad() {
         interactor?.getPokemonList()
+    }
+    
+    func showPokemonSelection(from view: UIViewController) {
+        wireframe?.pushToPokemonDetail(from: view)
     }
 }
 
