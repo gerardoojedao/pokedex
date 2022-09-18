@@ -40,8 +40,9 @@ class PokemonCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setPokemonCell(with asd:String){
-        nameLabel.text = asd
+    func setPokemonCell(with pokemon: Pokemon){
+        nameLabel.text = pokemon.name
+        //self.imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(index).png"
     }
 
 }

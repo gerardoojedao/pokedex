@@ -10,9 +10,10 @@ import CoreData
 
 let cellIdentifier = "pokemonCellIdentifier"
 
-class PokemonListViewController: UITableViewController, PokemonListViewProtocol {
+class PokemonListViewController: UITableViewController {
 
     var presenter:PokemonListPresenterProtocol?
+    var pokemons = [Pokemon]()
     
     lazy var resultSearchController: UISearchController = ({
         let controller = UISearchController(searchResultsController: nil)
@@ -24,14 +25,8 @@ class PokemonListViewController: UITableViewController, PokemonListViewProtocol 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter?.viewDidLoad()
         setupUI()
-
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     func setupUI(){
@@ -64,20 +59,22 @@ extension PokemonListViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 25
+        return pokemons.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PokemonCell
-        
-        cell.setPokemonCell(with: "Título de ejemplo")
-
+        let pokemon = pokemons[indexPath.row]
+        cell.setPokemonCell(with: pokemon)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        
+        let pokemon = pokemons[indexPath.row]
         
         presenter?.showPokemonSelection(from: self)
     }
@@ -121,7 +118,7 @@ extension PokemonListViewController {
 
 extension PokemonListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        NSLog(searchText)
+
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -132,5 +129,16 @@ extension PokemonListViewController: UISearchBarDelegate {
 extension PokemonListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         
+    }
+}
+
+extension PokemonListViewController: PokemonListViewProtocol {
+    func showPokemons(with pokemons: [Pokemon]) {
+        self.pokemons = pokemons
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+
+        }
     }
 }

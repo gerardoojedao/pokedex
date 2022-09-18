@@ -33,8 +33,8 @@ extension APIManager {
         let sessionTask = URLSession(configuration: .default).dataTask(with: request) { (data, response, error) in
             
             if (data != nil){
-                let result = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
-                completion (result as? T, nil)
+                let jsondecode = try? JSONDecoder().decode(T.self, from: data!)
+                completion (jsondecode, nil)
             }
                 
             if (error != nil) {
