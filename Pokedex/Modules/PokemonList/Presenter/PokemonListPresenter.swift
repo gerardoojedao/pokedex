@@ -23,7 +23,11 @@ class PokemonListPresenter: PokemonListPresenterProtocol {
 }
 
 extension PokemonListPresenter: PokemonListOutputInteractorProtocol {
-    func pokemonListDidFetch(pokemonList: [Pokemon]) {
+    func fetchPokemonListSuccess(pokemonList: [Pokemon]) {
         view?.showPokemons(with: pokemonList)
+    }
+    
+    func fetchPokemonListError(error: String) {
+        view?.showError(error: error)
     }
 }

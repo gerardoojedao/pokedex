@@ -14,10 +14,11 @@ class PokemonListInteractor: PokemonListInputInteractorProtocol {
         
         APIManager.shared.call(type: EndpointItem.pokemonList) { (result: Result<Response>) in
             switch result {
-                case .Error(_):
+                case .Error(let errorDesciption):
+                    self.presenter?.fetchPokemonListError(error: errorDesciption)
                     break
                 case .Success(let responseResult):
-                    self.presenter?.pokemonListDidFetch(pokemonList: responseResult.results)
+                    self.presenter?.fetchPokemonListSuccess(pokemonList: responseResult.results)
                     break
             }
         }

@@ -9,6 +9,7 @@ import UIKit
 
 protocol PokemonListViewProtocol {
     func showPokemons(with pokemons: [Pokemon])
+    func showError(error: String)
 }
 
 protocol PokemonListPresenterProtocol {
@@ -27,7 +28,8 @@ protocol PokemonListInputInteractorProtocol {
 }
 
 protocol PokemonListOutputInteractorProtocol {
-    func pokemonListDidFetch(pokemonList: [Pokemon])
+    func fetchPokemonListSuccess(pokemonList: [Pokemon])
+    func fetchPokemonListError(error: String)
 }
 
 protocol PokemonListWireFrameProtocol {

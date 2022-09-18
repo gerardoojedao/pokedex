@@ -27,6 +27,7 @@ class PokemonListViewController: UITableViewController {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         setupUI()
+
     }
 
     func setupUI(){
@@ -138,7 +139,12 @@ extension PokemonListViewController: PokemonListViewProtocol {
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
-
+        }
+    }
+    
+    func showError(error: String) {
+        DispatchQueue.main.async {
+            AlertMessage.show(with: error, in: self)
         }
     }
 }
