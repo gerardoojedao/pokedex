@@ -12,8 +12,14 @@ class PokemonListInteractor: PokemonListInputInteractorProtocol {
 
     func getPokemonList() {
         
-        APIManager.shared.call(type: EndpointItem.pokemonList, params: nil) { (result: Response?, error: String?) in
-            self.presenter?.pokemonListDidFetch(pokemonList: result!.results)
+        APIManager.shared.call(type: EndpointItem.pokemonList) { (result: Result<Response>) in
+            switch result {
+                case .Error(_):
+                    break
+                case .Success(let responseResult):
+                    self.presenter?.pokemonListDidFetch(pokemonList: responseResult.results)
+                    break
+            }
         }
     }
 }

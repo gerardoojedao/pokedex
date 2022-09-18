@@ -23,6 +23,7 @@
 		567566CB28D3F28E00972FF1 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566CA28D3F28E00972FF1 /* APIManager.swift */; };
 		567566CD28D3F3D900972FF1 /* EndpointItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566CC28D3F3D900972FF1 /* EndpointItem.swift */; };
 		567566CF28D6C22100972FF1 /* PokemonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566CE28D6C22100972FF1 /* PokemonClass.swift */; };
+		567566D128D78D8700972FF1 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566D028D78D8700972FF1 /* CustomError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		567566CA28D3F28E00972FF1 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		567566CC28D3F3D900972FF1 /* EndpointItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointItem.swift; sourceTree = "<group>"; };
 		567566CE28D6C22100972FF1 /* PokemonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonClass.swift; sourceTree = "<group>"; };
+		567566D028D78D8700972FF1 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 			children = (
 				567566CA28D3F28E00972FF1 /* APIManager.swift */,
 				567566CC28D3F3D900972FF1 /* EndpointItem.swift */,
+				567566D028D78D8700972FF1 /* CustomError.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			files = (
 				567566CF28D6C22100972FF1 /* PokemonClass.swift in Sources */,
 				5641BD2228D2CB52008EC90C /* PokemonListWireFrame.swift in Sources */,
+				567566D128D78D8700972FF1 /* CustomError.swift in Sources */,
 				5641BCD728D28EA2008EC90C /* Pokedex.xcdatamodeld in Sources */,
 				567566CB28D3F28E00972FF1 /* APIManager.swift in Sources */,
 				5641BD2A28D2CBCE008EC90C /* PokemonListPresenter.swift in Sources */,

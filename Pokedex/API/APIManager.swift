@@ -6,6 +6,11 @@
 //
 import UIKit
 
+enum Result<T> {
+    case Success(T)
+    case Error(String)
+}
+
 class APIManager {
     static let shared: APIManager = { 
         let manager = APIManager()
@@ -15,12 +20,11 @@ class APIManager {
 
 extension APIManager {
     
-    func call<T>(type: EndPointType, params: [String: Any]? = nil, completion: @escaping (T?, _ error: String?)->()) where T: Codable {
+    func call<T>(type: EndPointType, params: [String: Any]? = nil, completion: @escaping (_ result: Result<T>)->()) where T: Codable {
         
         var request = URLRequest(url: type.url)
         
         for (key, value) in type.headers ?? [:] {
-            print(key, value)
             request.addValue(value as? String ?? "", forHTTPHeaderField: key)
         }
        
@@ -31,16 +35,20 @@ extension APIManager {
         }
         
         let sessionTask = URLSession(configuration: .default).dataTask(with: request) { (data, response, error) in
+                        
+            guard error == nil else { return completion(.Error(error!.localizedDescription)) }
             
-            if (data != nil){
-                let jsondecode = try? JSONDecoder().decode(T.self, from: data!)
-                completion (jsondecode, nil)
-            }
-                
-            if (error != nil) {
-                completion (nil,error?.localizedDescription)
+            guard let data = data else { return completion(.Error(CustomError.noDataAvailable.localizedDescription)) }
+            
+            do {
+                let jsondecode = try JSONDecoder().decode(T.self, from: data)
+                return completion(.Success(jsondecode))
+            } catch let error {
+                return completion(.Error(error.localizedDescription))
             }
         }
         sessionTask.resume()
     }
 }
+
+
