@@ -76,8 +76,7 @@ extension PokemonListViewController {
         
         
         let pokemon = pokemons[indexPath.row]
-        
-        presenter?.showPokemonSelection(from: self)
+        presenter?.showPokemonSelection(with: pokemon, from: self)
     }
 
     /*

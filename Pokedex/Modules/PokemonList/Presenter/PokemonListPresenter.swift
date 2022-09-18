@@ -17,8 +17,8 @@ class PokemonListPresenter: PokemonListPresenterProtocol {
         interactor?.getPokemonList()
     }
     
-    func showPokemonSelection(from view: UIViewController) {
-        wireframe?.pushToPokemonDetail(from: view)
+    func showPokemonSelection(with pokemon: Pokemon, from view: UIViewController) {
+        wireframe?.pushToPokemonDetail(with: pokemon, from: view)
     }
 }
 
