@@ -9,6 +9,8 @@ import Foundation
 
 enum CustomError: Error {
     case noDataAvailable
+    case invalidResponse
+    case invalidHttpResponseCode
 }
 
 extension CustomError: LocalizedError {
@@ -18,6 +20,16 @@ extension CustomError: LocalizedError {
             return NSLocalizedString(
                 "Se ha producido un error con los datos",
                 comment: "No data available"
+            )
+        case .invalidResponse:
+            return NSLocalizedString(
+                "La respuesta retornada es inválida",
+                comment: "Invalid Response"
+            )
+        case .invalidHttpResponseCode:
+            return NSLocalizedString(
+                "La respuesta retornada es inválida",
+                comment: "Invalid Response Code"
             )
 
         }

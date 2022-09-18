@@ -35,8 +35,16 @@ extension APIManager {
         }
         
         let sessionTask = URLSession(configuration: .default).dataTask(with: request) { (data, response, error) in
-                        
+                                    
             guard error == nil else { return completion(.Error(error!.localizedDescription)) }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                return completion(.Error(CustomError.invalidResponse.localizedDescription))
+            }
+            
+            guard (200...299).contains(httpResponse.statusCode) else {
+                return completion(.Error(CustomError.invalidHttpResponseCode.localizedDescription))
+            }
             
             guard let data = data else { return completion(.Error(CustomError.noDataAvailable.localizedDescription)) }
             
