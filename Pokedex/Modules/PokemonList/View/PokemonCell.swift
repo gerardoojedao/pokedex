@@ -10,6 +10,25 @@ import UIKit
 let imageSize: CGFloat = 50
 
 class PokemonCell: UITableViewCell {
+    
+    var imageUrl: String? {
+        didSet {
+            guard imageUrl != nil else {
+                return
+            }
+            
+            self.photoImageView.image = nil
+            
+            let url = URL(string: imageUrl!)
+            
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                DispatchQueue.main.async {
+                    self.photoImageView.image = UIImage(data: data!)
+                }
+            }
+        }
+    }
 
     lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -22,7 +41,7 @@ class PokemonCell: UITableViewCell {
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textAlignment = .left
@@ -40,7 +59,7 @@ class PokemonCell: UITableViewCell {
     }
     
     func setPokemonCell(with pokemon: Pokemon){
-        nameLabel.text = pokemon.name
+        nameLabel.text = pokemon.name?.capitalized
         
         let url = NSURL(string: pokemon.url!)
         let pokemonId = url?.lastPathComponent
