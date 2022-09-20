@@ -15,7 +15,6 @@ class PokemonCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         imageView.layer.masksToBounds = true
         return imageView
     }()
@@ -42,7 +41,10 @@ class PokemonCell: UITableViewCell {
     
     func setPokemonCell(with pokemon: Pokemon){
         nameLabel.text = pokemon.name
-        //self.imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(index).png"
+        
+        let url = NSURL(string: pokemon.url!)
+        let pokemonId = url?.lastPathComponent
+        self.imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(pokemonId!).png"
     }
 
 }
