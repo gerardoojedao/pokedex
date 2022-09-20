@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let windows = UIWindow(windowScene: windowScene)
         windows.rootViewController = rootController
         windows.makeKeyAndVisible()
+        windows.backgroundColor = .white
         self.window = windows
         
     }
