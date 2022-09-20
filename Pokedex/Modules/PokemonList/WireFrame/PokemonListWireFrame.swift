@@ -30,8 +30,7 @@ class PokemonListWireFrame: PokemonListWireFrameProtocol {
     
     // MARK: - Navigation
     func pushToPokemonDetail(with pokemon: Pokemon, from view: UIViewController) {
-        let controller = UIViewController()
-        controller.view.backgroundColor = .white
+        let controller = PokemonDetailsWireFrame.createModule(with: pokemon.name!)
         view.navigationController?.pushViewController(controller, animated: true)
     }
 }
