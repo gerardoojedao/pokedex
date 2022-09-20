@@ -13,7 +13,7 @@ class PokemonDetailsWireFrame: PokemonDetailsWireFrameProtocol {
     // MARK: Static methods
     static func createModule(with pokemonName: String) -> UIViewController {
         
-        let viewController = PokemonDetailsViewController()
+        let viewController = PokemonDetailsTableViewController()
         
         let presenter: PokemonDetailsPresenterProtocol & PokemonDetailsOutputInteractorProtocol = PokemonDetailsPresenter()
         
@@ -25,5 +25,10 @@ class PokemonDetailsWireFrame: PokemonDetailsWireFrameProtocol {
         viewController.presenter?.interactor?.presenter = presenter
         
         return viewController
+    }
+    
+    func pushToPokemonEvolution(with pokemon: Pokemon, from view: UIViewController) {
+        let controller = PokemonDetailsWireFrame.createModule(with: (pokemon.evolves_to?.species?.name!)!)
+        view.navigationController?.pushViewController(controller, animated: true)
     }
 }

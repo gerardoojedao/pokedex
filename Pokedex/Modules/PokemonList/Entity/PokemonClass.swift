@@ -15,10 +15,12 @@ struct Pokemon: Codable {
     let abilities: [Ability]?
     let types: [Type]?
     let location_area_encounters: String?
+    let species: NameAndUrl?
+    var evolves_to: EvolvesTo?
     
     enum PokemonKeys: String, CodingKey
     {
-        case id, name, url, moves, abilities, types, location_area_encounters
+        case id, name, url, moves, abilities, types, location_area_encounters, species
     }
     
     init (from decoder: Decoder) throws {
@@ -30,7 +32,7 @@ struct Pokemon: Codable {
         abilities = try? container.decode ([Ability].self, forKey: .abilities)
         types = try? container.decode ([Type].self, forKey: .types)
         location_area_encounters = try? container.decode (String.self, forKey: .location_area_encounters)
-
+        species = try? container.decode (NameAndUrl.self, forKey: .species)
     }
     
     func encode (to encoder: Encoder) throws {
@@ -42,6 +44,7 @@ struct Pokemon: Codable {
         try container.encode (abilities, forKey: .abilities)
         try container.encode (types, forKey: .types)
         try container.encode (location_area_encounters, forKey: .location_area_encounters)
+        try container.encode (species, forKey: .species)
     }
 }
 
@@ -60,4 +63,20 @@ struct Type: Codable {
 struct NameAndUrl: Codable {
     let name: String?
     let url: String?
+}
+
+struct Encounters: Codable {
+    let location_area: NameAndUrl?
+}
+
+struct Evolution: Codable {
+    let chain: EvolutionChain?
+}
+
+struct EvolutionChain: Codable {
+    let evolves_to: [EvolvesTo]?
+}
+
+struct EvolvesTo: Codable {
+    let species: NameAndUrl?
 }

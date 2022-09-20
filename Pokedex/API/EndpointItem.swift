@@ -9,6 +9,8 @@ import Foundation
 enum EndpointItem {
     case pokemonList
     case pokemonDetail(name: String)
+    case encounters(id: String)
+    case evolution(id: String)
 }
 
 enum HttpMethod:String{
@@ -43,6 +45,10 @@ extension EndpointItem: EndPointType {
             return "/pokemon?limit=150&offset=0"
         case let .pokemonDetail(name):
             return "/pokemon/\(name)"
+        case let .encounters(id):
+            return "/pokemon/\(id)/encounters"
+        case let .evolution(id):
+            return "/evolution-chain/\(id)"
         }
     }
     

@@ -33,6 +33,7 @@
 		567566E628DA0CD400972FF1 /* PropertyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566E528DA0CD400972FF1 /* PropertyCollectionViewCell.swift */; };
 		567566EA28DA193A00972FF1 /* LeftAlignedCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566E928DA193A00972FF1 /* LeftAlignedCollectionViewLayout.swift */; };
 		567566EC28DA253A00972FF1 /* SectionHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566EB28DA253A00972FF1 /* SectionHeaderCollectionViewCell.swift */; };
+		567566EE28DA66FB00972FF1 /* PokemonDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566ED28DA66FB00972FF1 /* PokemonDetailsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		567566E528DA0CD400972FF1 /* PropertyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCollectionViewCell.swift; sourceTree = "<group>"; };
 		567566E928DA193A00972FF1 /* LeftAlignedCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewLayout.swift; sourceTree = "<group>"; };
 		567566EB28DA253A00972FF1 /* SectionHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		567566ED28DA66FB00972FF1 /* PokemonDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +308,7 @@
 				567566E528DA0CD400972FF1 /* PropertyCollectionViewCell.swift */,
 				567566E928DA193A00972FF1 /* LeftAlignedCollectionViewLayout.swift */,
 				567566EB28DA253A00972FF1 /* SectionHeaderCollectionViewCell.swift */,
+				567566ED28DA66FB00972FF1 /* PokemonDetailsTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				5641BD2F28D2CE07008EC90C /* PokemonListInteractor.swift in Sources */,
 				5641BCCD28D28EA2008EC90C /* AppDelegate.swift in Sources */,
 				5641BD1A28D2C8F8008EC90C /* PokemonListProtocols.swift in Sources */,
+				567566EE28DA66FB00972FF1 /* PokemonDetailsTableViewController.swift in Sources */,
 				5641BD1428D2C7F5008EC90C /* PokemonListViewController.swift in Sources */,
 				5641BCCF28D28EA2008EC90C /* SceneDelegate.swift in Sources */,
 				567566C828D36DE400972FF1 /* PokemonCell.swift in Sources */,

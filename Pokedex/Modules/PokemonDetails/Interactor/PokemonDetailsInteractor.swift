@@ -22,4 +22,32 @@ class PokemonDetailsInteractor: PokemonDetailsInputInteractorProtocol {
             }
         }
     }
+    
+    func getEncountersDetails(with id: String) {
+        APIManager.shared.call(type: EndpointItem.encounters(id: id)) { (result: Result<[Encounters]>) in
+            
+            print(result)
+            switch result {
+                case .Error(let errorDesciption):
+                    self.presenter?.fetchPokemonEncountersDetailsError(error: errorDesciption)
+                    break
+                case .Success(let responseResult):
+                    self.presenter?.fetchPokemonEncountersSuccess(encounters: responseResult)
+                    break
+            }
+        }
+    }
+    
+    func getEvolutionDetails(with id: String) {
+        APIManager.shared.call(type: EndpointItem.evolution(id: id)) { (result: Result<Evolution>) in
+            switch result {
+                case .Error(let errorDesciption):
+                    self.presenter?.fetchPokemonEvolutionError(error: errorDesciption)
+                    break
+                case .Success(let responseResult):
+                    self.presenter?.fetchPokemonEvolutionSuccess(evolution: responseResult)
+                    break
+            }
+        }
+    }
 }
