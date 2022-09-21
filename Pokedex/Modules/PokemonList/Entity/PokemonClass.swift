@@ -17,6 +17,7 @@ struct Pokemon: Codable {
     let location_area_encounters: String?
     let species: NameAndUrl?
     var evolves_to: EvolvesTo?
+    var encounters: [Encounters]?
     
     enum PokemonKeys: String, CodingKey
     {

@@ -31,4 +31,9 @@ class PokemonDetailsWireFrame: PokemonDetailsWireFrameProtocol {
         let controller = PokemonDetailsWireFrame.createModule(with: (pokemon.evolves_to?.species?.name!)!)
         view.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    func pushToOptions(with options: [NameAndUrl], type: OptionType, from view: UIViewController) {
+        let controller = PropertyListWireFrame.createModule(with: options, and: type)
+        view.navigationController?.pushViewController(controller, animated: true)
+    }
 }

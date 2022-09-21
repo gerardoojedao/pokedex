@@ -19,6 +19,10 @@ class PokemonDetailsPresenter: PokemonDetailsPresenterProtocol {
     func showPokemonEvolutionSelection(with pokemon: Pokemon, from view: UIViewController) {
         wireframe?.pushToPokemonEvolution(with: pokemon, from: view)
     }
+    
+    func showOptionSelection(with options: [NameAndUrl], type: OptionType, from view: UIViewController) {
+        wireframe?.pushToOptions(with: options, type: type, from: view)
+    }
 }
 
 extension PokemonDetailsPresenter: PokemonDetailsOutputInteractorProtocol {
@@ -41,6 +45,10 @@ extension PokemonDetailsPresenter: PokemonDetailsOutputInteractorProtocol {
     }
     
     func fetchPokemonEncountersSuccess(encounters: [Encounters]) {
+        guard encounters.count > 0 else {
+            return
+        }
+        
         view?.showPokemonEncounters(with: encounters)
     }
     
@@ -49,7 +57,6 @@ extension PokemonDetailsPresenter: PokemonDetailsOutputInteractorProtocol {
     }
     
     func fetchPokemonEvolutionSuccess(evolution: Evolution) {
-        print(evolution)
         guard let evolves_to = evolution.chain?.evolves_to else {
             return
         }

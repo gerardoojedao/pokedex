@@ -34,6 +34,11 @@
 		567566EA28DA193A00972FF1 /* LeftAlignedCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566E928DA193A00972FF1 /* LeftAlignedCollectionViewLayout.swift */; };
 		567566EC28DA253A00972FF1 /* SectionHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566EB28DA253A00972FF1 /* SectionHeaderCollectionViewCell.swift */; };
 		567566EE28DA66FB00972FF1 /* PokemonDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566ED28DA66FB00972FF1 /* PokemonDetailsTableViewController.swift */; };
+		567566F628DA8B7000972FF1 /* PropertyListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566F528DA8B7000972FF1 /* PropertyListProtocols.swift */; };
+		567566F828DA8B7D00972FF1 /* PropertyListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566F728DA8B7D00972FF1 /* PropertyListPresenter.swift */; };
+		567566FA28DA8B8A00972FF1 /* PropertyListWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566F928DA8B8A00972FF1 /* PropertyListWireFrame.swift */; };
+		567566FC28DA8B9B00972FF1 /* PropertyListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566FB28DA8B9B00972FF1 /* PropertyListInteractor.swift */; };
+		567566FE28DA8BAA00972FF1 /* PropertyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567566FD28DA8BAA00972FF1 /* PropertyListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +92,11 @@
 		567566E928DA193A00972FF1 /* LeftAlignedCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewLayout.swift; sourceTree = "<group>"; };
 		567566EB28DA253A00972FF1 /* SectionHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		567566ED28DA66FB00972FF1 /* PokemonDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsTableViewController.swift; sourceTree = "<group>"; };
+		567566F528DA8B7000972FF1 /* PropertyListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListProtocols.swift; sourceTree = "<group>"; };
+		567566F728DA8B7D00972FF1 /* PropertyListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListPresenter.swift; sourceTree = "<group>"; };
+		567566F928DA8B8A00972FF1 /* PropertyListWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListWireFrame.swift; sourceTree = "<group>"; };
+		567566FB28DA8B9B00972FF1 /* PropertyListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListInteractor.swift; sourceTree = "<group>"; };
+		567566FD28DA8BAA00972FF1 /* PropertyListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +251,7 @@
 		5641BD4E28D36C5B008EC90C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				567566EF28DA8ABF00972FF1 /* PropertyList */,
 				567566D528D797C600972FF1 /* PokemonDetails */,
 				5641BD0228D2C6DB008EC90C /* PokemonList */,
 			);
@@ -319,6 +330,58 @@
 				567566E328D7994C00972FF1 /* PokemonDetailsWireFrame.swift */,
 			);
 			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		567566EF28DA8ABF00972FF1 /* PropertyList */ = {
+			isa = PBXGroup;
+			children = (
+				567566F428DA8B0300972FF1 /* Interactor */,
+				567566F328DA8AFB00972FF1 /* View */,
+				567566F228DA8AF100972FF1 /* WireFrame */,
+				567566F128DA8AEB00972FF1 /* Presenter */,
+				567566F028DA8AE300972FF1 /* Protocols */,
+			);
+			path = PropertyList;
+			sourceTree = "<group>";
+		};
+		567566F028DA8AE300972FF1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				567566F528DA8B7000972FF1 /* PropertyListProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		567566F128DA8AEB00972FF1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				567566F728DA8B7D00972FF1 /* PropertyListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		567566F228DA8AF100972FF1 /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				567566F928DA8B8A00972FF1 /* PropertyListWireFrame.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		567566F328DA8AFB00972FF1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				567566FD28DA8BAA00972FF1 /* PropertyListTableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		567566F428DA8B0300972FF1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				567566FB28DA8B9B00972FF1 /* PropertyListInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,19 +517,24 @@
 				5641BD2228D2CB52008EC90C /* PokemonListWireFrame.swift in Sources */,
 				567566E028D7992400972FF1 /* PokemonDetailsInteractor.swift in Sources */,
 				567566D128D78D8700972FF1 /* CustomError.swift in Sources */,
+				567566F628DA8B7000972FF1 /* PropertyListProtocols.swift in Sources */,
 				567566E428D7994C00972FF1 /* PokemonDetailsWireFrame.swift in Sources */,
 				5641BCD728D28EA2008EC90C /* Pokedex.xcdatamodeld in Sources */,
 				567566EC28DA253A00972FF1 /* SectionHeaderCollectionViewCell.swift in Sources */,
+				567566FC28DA8B9B00972FF1 /* PropertyListInteractor.swift in Sources */,
 				567566CB28D3F28E00972FF1 /* APIManager.swift in Sources */,
 				567566DC28D7987E00972FF1 /* PokemonDetailsProtocols.swift in Sources */,
 				5641BD2A28D2CBCE008EC90C /* PokemonListPresenter.swift in Sources */,
+				567566FE28DA8BAA00972FF1 /* PropertyListTableViewController.swift in Sources */,
 				567566D428D78E5A00972FF1 /* AlertMessage.swift in Sources */,
 				567566E628DA0CD400972FF1 /* PropertyCollectionViewCell.swift in Sources */,
 				5641BD2F28D2CE07008EC90C /* PokemonListInteractor.swift in Sources */,
 				5641BCCD28D28EA2008EC90C /* AppDelegate.swift in Sources */,
 				5641BD1A28D2C8F8008EC90C /* PokemonListProtocols.swift in Sources */,
+				567566F828DA8B7D00972FF1 /* PropertyListPresenter.swift in Sources */,
 				567566EE28DA66FB00972FF1 /* PokemonDetailsTableViewController.swift in Sources */,
 				5641BD1428D2C7F5008EC90C /* PokemonListViewController.swift in Sources */,
+				567566FA28DA8B8A00972FF1 /* PropertyListWireFrame.swift in Sources */,
 				5641BCCF28D28EA2008EC90C /* SceneDelegate.swift in Sources */,
 				567566C828D36DE400972FF1 /* PokemonCell.swift in Sources */,
 				567566CD28D3F3D900972FF1 /* EndpointItem.swift in Sources */,

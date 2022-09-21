@@ -23,6 +23,7 @@ protocol PokemonDetailsPresenterProtocol {
     
     func viewDidLoad()
     func showPokemonEvolutionSelection(with pokemon: Pokemon, from view: UIViewController)
+    func showOptionSelection(with options: [NameAndUrl], type: OptionType, from view: UIViewController)
 
 }
 
@@ -48,5 +49,6 @@ protocol PokemonDetailsOutputInteractorProtocol {
 protocol PokemonDetailsWireFrameProtocol {
     static func createModule(with pokemonName: String) -> UIViewController
     func pushToPokemonEvolution(with pokemon: Pokemon, from view: UIViewController)
+    func pushToOptions(with options: [NameAndUrl], type: OptionType, from view: UIViewController)
 
 }

@@ -25,8 +25,6 @@ class PokemonDetailsInteractor: PokemonDetailsInputInteractorProtocol {
     
     func getEncountersDetails(with id: String) {
         APIManager.shared.call(type: EndpointItem.encounters(id: id)) { (result: Result<[Encounters]>) in
-            
-            print(result)
             switch result {
                 case .Error(let errorDesciption):
                     self.presenter?.fetchPokemonEncountersDetailsError(error: errorDesciption)
