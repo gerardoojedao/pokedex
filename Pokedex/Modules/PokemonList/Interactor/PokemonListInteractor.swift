@@ -47,7 +47,7 @@ class PokemonListInteractor: PokemonListInputInteractorProtocol {
     }
 }
 
-struct Response: Codable { // or Decodable
+struct Response: Codable { 
     let count: Int
     let results: [PokemonClass]
 }
