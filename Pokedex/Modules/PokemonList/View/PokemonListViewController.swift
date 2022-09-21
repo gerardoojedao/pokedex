@@ -14,9 +14,11 @@ class PokemonListViewController: UITableViewController {
 
     var presenter:PokemonListPresenterProtocol?
     var pokemons = [Pokemon]()
+    var filteredPokemons = [Pokemon]()
     
     lazy var resultSearchController: UISearchController = ({
         let controller = UISearchController(searchResultsController: nil)
+        controller.obscuresBackgroundDuringPresentation = false
         controller.searchResultsUpdater = self
         controller.searchBar.delegate = self
         controller.searchBar.sizeToFit()
@@ -60,13 +62,13 @@ extension PokemonListViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return pokemons.count
+        return filteredPokemons.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PokemonCell
-        let pokemon = pokemons[indexPath.row]
+        let pokemon = filteredPokemons[indexPath.row]
         cell.setPokemonCell(with: pokemon)
         return cell
     }
@@ -75,7 +77,7 @@ extension PokemonListViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         
-        let pokemon = pokemons[indexPath.row]
+        let pokemon = filteredPokemons[indexPath.row]
         presenter?.showPokemonSelection(with: pokemon, from: self)
     }
 
@@ -122,19 +124,28 @@ extension PokemonListViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-
+        filteredPokemons = pokemons
+        
+        tableView.reloadData()
     }
 }
 
 extension PokemonListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text, text.count > 0 else { return }
         
+        filteredPokemons = pokemons.filter({ pokemon in
+            pokemon.name!.localizedStandardContains(text)
+        })
+        
+        tableView.reloadData()
     }
 }
 
 extension PokemonListViewController: PokemonListViewProtocol {
     func showPokemons(with pokemons: [Pokemon]) {
         self.pokemons = pokemons
+        self.filteredPokemons = pokemons
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
