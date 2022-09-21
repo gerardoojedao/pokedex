@@ -7,7 +7,7 @@
 
 import UIKit
 
-let imageSize: CGFloat = 50
+let imageSize: CGFloat = 100
 
 class PokemonCell: UITableViewCell {
     
@@ -58,7 +58,7 @@ class PokemonCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setPokemonCell(with pokemon: Pokemon){
+    func setPokemonCell(with pokemon: PokemonObject){
         nameLabel.text = pokemon.name?.capitalized
         
         let url = NSURL(string: pokemon.url!)
