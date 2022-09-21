@@ -36,7 +36,7 @@ class PokemonListWireFrame: PokemonListWireFrameProtocol {
     }
     
     // MARK: - Navigation
-    func pushToPokemonDetail(with pokemon: Pokemon, from view: UIViewController) {
+    func pushToPokemonDetail(with pokemon: PokemonObject, from view: UIViewController) {
         let controller = PokemonDetailsWireFrame.createModule(with: pokemon.name!)
         view.navigationController?.pushViewController(controller, animated: true)
     }

@@ -16,7 +16,7 @@ class PokemonDetailsPresenter: PokemonDetailsPresenterProtocol {
         interactor?.getPokemonDetails(with: (view?.pokemonName)!)
     }
     
-    func showPokemonEvolutionSelection(with pokemon: Pokemon, from view: UIViewController) {
+    func showPokemonEvolutionSelection(with pokemon: PokemonObject, from view: UIViewController) {
         wireframe?.pushToPokemonEvolution(with: pokemon, from: view)
     }
     
@@ -26,7 +26,7 @@ class PokemonDetailsPresenter: PokemonDetailsPresenterProtocol {
 }
 
 extension PokemonDetailsPresenter: PokemonDetailsOutputInteractorProtocol {
-    func fetchPokemonDetailsSuccess(pokemonDetails: Pokemon) {
+    func fetchPokemonDetailsSuccess(pokemonDetails: PokemonObject) {
                 
         view?.showPokemonDetails(with: pokemonDetails)
         
@@ -44,19 +44,23 @@ extension PokemonDetailsPresenter: PokemonDetailsOutputInteractorProtocol {
         view?.showError(error: error)
     }
     
-    func fetchPokemonEncountersSuccess(encounters: [Encounters]) {
+    func fetchPokemonEncountersSuccess(encounters: [EncountersClass]) {
         guard encounters.count > 0 else {
             return
         }
         
-        view?.showPokemonEncounters(with: encounters)
+        let array = encounters.map({(encounter) -> NameAndUrl in
+            (encounter.location_area)!
+        })
+        
+        view?.showPokemonEncounters(with: array)
     }
     
     func fetchPokemonEncountersDetailsError(error: String) {
         view?.showError(error: error)
     }
     
-    func fetchPokemonEvolutionSuccess(evolution: Evolution) {
+    func fetchPokemonEvolutionSuccess(evolution: EvolutionClass) {
         guard let evolves_to = evolution.chain?.evolves_to else {
             return
         }

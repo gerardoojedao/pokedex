@@ -13,8 +13,8 @@ let cellIdentifier = "pokemonCellIdentifier"
 class PokemonListViewController: UITableViewController {
 
     var presenter:PokemonListPresenterProtocol?
-    var pokemons = [Pokemon]()
-    var filteredPokemons = [Pokemon]()
+    var pokemons = [PokemonObject]()
+    var filteredPokemons = [PokemonObject]()
     
     lazy var resultSearchController: UISearchController = ({
         let controller = UISearchController(searchResultsController: nil)
@@ -34,6 +34,7 @@ class PokemonListViewController: UITableViewController {
 
     func setupUI(){
         title = "Pokédex"
+        self.tableView.tableFooterView = UIView()
         self.tableView.register(PokemonCell.self, forCellReuseIdentifier: cellIdentifier)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.navigationItem.searchController = resultSearchController
@@ -120,7 +121,13 @@ extension PokemonListViewController {
 
 extension PokemonListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
+        guard searchText.count == 0 else {
+            return
+        }
+        
+        filteredPokemons = pokemons
+        
+        tableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -143,7 +150,7 @@ extension PokemonListViewController: UISearchResultsUpdating {
 }
 
 extension PokemonListViewController: PokemonListViewProtocol {
-    func showPokemons(with pokemons: [Pokemon]) {
+    func showPokemons(with pokemons: [PokemonObject]) {
         self.pokemons = pokemons
         self.filteredPokemons = pokemons
         

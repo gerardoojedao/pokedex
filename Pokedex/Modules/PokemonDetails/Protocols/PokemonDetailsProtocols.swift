@@ -10,9 +10,9 @@ import UIKit
 protocol PokemonDetailsViewProtocol {
     var pokemonName: String? {get set}
 
-    func showPokemonDetails(with pokemon: Pokemon)
-    func showPokemonEncounters(with encounters: [Encounters])
-    func showPokemonEvolution(with evolution: Evolution)
+    func showPokemonDetails(with pokemon: PokemonObject)
+    func showPokemonEncounters(with encounters: [NameAndUrl])
+    func showPokemonEvolution(with evolution: EvolutionClass)
     func showError(error: String)
 }
 
@@ -22,7 +22,7 @@ protocol PokemonDetailsPresenterProtocol {
     var wireframe: PokemonDetailsWireFrameProtocol? {get set}
     
     func viewDidLoad()
-    func showPokemonEvolutionSelection(with pokemon: Pokemon, from view: UIViewController)
+    func showPokemonEvolutionSelection(with pokemon: PokemonObject, from view: UIViewController)
     func showOptionSelection(with options: [NameAndUrl], type: OptionType, from view: UIViewController)
 
 }
@@ -36,19 +36,19 @@ protocol PokemonDetailsInputInteractorProtocol {
 }
 
 protocol PokemonDetailsOutputInteractorProtocol {
-    func fetchPokemonDetailsSuccess(pokemonDetails: Pokemon)
+    func fetchPokemonDetailsSuccess(pokemonDetails: PokemonObject)
     func fetchPokemonDetailsError(error: String)
     
-    func fetchPokemonEncountersSuccess(encounters: [Encounters])
+    func fetchPokemonEncountersSuccess(encounters: [EncountersClass])
     func fetchPokemonEncountersDetailsError(error: String)
     
-    func fetchPokemonEvolutionSuccess(evolution: Evolution)
+    func fetchPokemonEvolutionSuccess(evolution: EvolutionClass)
     func fetchPokemonEvolutionError(error: String)
 }
 
 protocol PokemonDetailsWireFrameProtocol {
     static func createModule(with pokemonName: String) -> UIViewController
-    func pushToPokemonEvolution(with pokemon: Pokemon, from view: UIViewController)
+    func pushToPokemonEvolution(with pokemon: PokemonObject, from view: UIViewController)
     func pushToOptions(with options: [NameAndUrl], type: OptionType, from view: UIViewController)
 
 }

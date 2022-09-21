@@ -17,13 +17,13 @@ class PokemonListPresenter: PokemonListPresenterProtocol {
         interactor?.getPokemonList()
     }
     
-    func showPokemonSelection(with pokemon: Pokemon, from view: UIViewController) {
+    func showPokemonSelection(with pokemon: PokemonObject, from view: UIViewController) {
         wireframe?.pushToPokemonDetail(with: pokemon, from: view)
     }
 }
 
 extension PokemonListPresenter: PokemonListOutputInteractorProtocol {
-    func fetchPokemonListSuccess(pokemonList: [Pokemon]) {
+    func fetchPokemonListSuccess(pokemonList: [PokemonObject]) {
         view?.showPokemons(with: pokemonList)
     }
     

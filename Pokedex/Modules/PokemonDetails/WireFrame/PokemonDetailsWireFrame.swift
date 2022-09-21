@@ -27,8 +27,8 @@ class PokemonDetailsWireFrame: PokemonDetailsWireFrameProtocol {
         return viewController
     }
     
-    func pushToPokemonEvolution(with pokemon: Pokemon, from view: UIViewController) {
-        let controller = PokemonDetailsWireFrame.createModule(with: (pokemon.evolves_to?.species?.name!)!)
+    func pushToPokemonEvolution(with pokemon: PokemonObject, from view: UIViewController) {
+        let controller = PokemonDetailsWireFrame.createModule(with: (pokemon.evolves?.name!)!)
         view.navigationController?.pushViewController(controller, animated: true)
     }
     
